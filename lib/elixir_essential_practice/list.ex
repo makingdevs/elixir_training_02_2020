@@ -35,6 +35,24 @@ defmodule ElixirEssentialsPractice.List do
   defp remainder2_for({_,b,_}) when rem(b,5) == 0, do: :buzz
   defp remainder2_for({_,_,h}), do: h
 
+  defp what_is_3(h), do
+    case {rem(h,3), rem(h,5), h} do
+      {0,0,_} -> :fizzbuzz
+      {0,_,_} -> :fizz
+      {_,0,_} -> :buzz
+      {_,_,h} -> h
+    end
+  end
+
+  defp what_is_4(h), do
+    cond do
+      rem(h,3) == 0 and rem(h,5) == 0 -> :fizzbuzz
+      rem(h,3) == 0 -> :fizz
+      rem(h,5) == 0 -> :buzz
+      true -> h
+    end
+  end
+
   # FizzBuzz
   # 3 => Fizz
   # 5 => Buzz
