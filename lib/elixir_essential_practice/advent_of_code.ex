@@ -1,4 +1,7 @@
 defmodule ElixirEssentialsPractice.AdventOfCode do
+  @moduledoc "Este es el módulo que agrupa las implementaciones de soluciones de Advent  of code"
+
+  @doc "Esta es la solución para día 1 año 2015"
   def santa_deliver_gifts(instructions) do
     instructions
     |> String.split("")
