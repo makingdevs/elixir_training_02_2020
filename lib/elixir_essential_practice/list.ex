@@ -19,7 +19,7 @@ defmodule ElixirEssentialsPractice.List do
   def fizzbuzz(lista), do: fizzbuzz_calculate(lista, [])
 
   defp fizzbuzz_calculate([], lista), do: lista
-  defp fizzbuzz_calculate([h|t], lista), do: fizzbuzz_calculate(t, lista ++ [what_is(h)])
+  defp fizzbuzz_calculate([h|t], lista), do: fizzbuzz_calculate(t, lista ++ [what_is_2(h)])
   defp what_is(h) do
     remainder_for({rem(h,3), rem(h,5), h})
   end
@@ -27,6 +27,13 @@ defmodule ElixirEssentialsPractice.List do
   defp remainder_for({0,_,_}), do: :fizz
   defp remainder_for({_,0,_}), do: :buzz
   defp remainder_for({_,_,h}), do: h
+
+
+  defp what_is_2(h), do: remainder2_for({h,h,h})
+  defp remainder2_for({f,b,_}) when rem(f,3) == 0 and rem(b,5) == 0, do: :fizzbuzz
+  defp remainder2_for({f,_,_}) when rem(f,3) == 0, do: :fizz
+  defp remainder2_for({_,b,_}) when rem(b,5) == 0, do: :buzz
+  defp remainder2_for({_,_,h}), do: h
 
   # FizzBuzz
   # 3 => Fizz
