@@ -9,4 +9,8 @@ defmodule ElixirEssentialsPractice.Math.Area do
   def kind(n) when is_number(n) and n > 0, do: :positive
   def kind(n) when is_number(n) and n < 0, do: :negative
   def kind(0), do: :zero
+
+  def gcd(a,a), do: a
+  def gcd(a,b) when a > b, do: gcd(a-b, b)
+  def gcd(a,b) when b > a, do: gcd(a, b-a)
 end
