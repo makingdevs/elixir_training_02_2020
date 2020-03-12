@@ -7,6 +7,9 @@ defmodule ElixirEssentialsPractice.Worker do
       {:compute, caller, n} ->
         result = Factorial.of(n)
         send caller, {:result, result}
+        job(a+1,b)
+      :status ->
+        IO.puts "#{a} times"
         job(a,b)
       :die ->
           IO.puts("bye")
