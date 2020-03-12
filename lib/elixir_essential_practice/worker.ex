@@ -1,9 +1,12 @@
 defmodule ElixirEssentialsPractice.Worker do
 
+  alias ElixirEssentialsPractice.Factorial
+
   def job(a,b) do
     receive do
-      :display ->
-        IO.puts("#{a} - #{b}")
+      {:compute, caller, n} ->
+        result = Factorial.of(n)
+        send caller, {:result, result}
         job(a,b)
       :die ->
           IO.puts("bye")
