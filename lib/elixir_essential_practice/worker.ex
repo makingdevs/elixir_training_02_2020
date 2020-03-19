@@ -2,6 +2,12 @@ defmodule ElixirEssentialsPractice.Worker do
 
   alias ElixirEssentialsPractice.Factorial
 
+  def many_factorials(list_of_numbers) when is_list(list_of_numbers) do
+    list_of_numbers
+    |> Enum.map(&(spawn_process(self(), &1)))
+    |> Enum.map(&await/1)
+  end
+
   def factorial_in_process(n) do
     spawn_process(self(), n)
     |> await()
